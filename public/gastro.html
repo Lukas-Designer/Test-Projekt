@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gastronomie – Bestellungen</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="kopf">
+    <div class="inhalt">
+      <h1>Gastronomie – Bestellübersicht</h1>
+      <div>
+        <a href="/">Zur Bestellseite</a>
+        <button id="abmelden" class="sekundaer klein versteckt" style="color:#fff;border-color:#fff;margin-left:10px">Abmelden</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="anmeldung" class="karte versteckt" style="max-width:420px">
+      <h2>Anmeldung Gastronomie</h2>
+      <form id="loginFormular">
+        <div class="feld">
+          <label for="passwort">Passwort</label>
+          <input id="passwort" type="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit">Anmelden</button>
+        <p id="loginMeldung" class="meldung fehler versteckt" role="alert"></p>
+      </form>
+    </section>
+
+    <div id="uebersicht" class="versteckt">
+      <div class="werkzeuge">
+        <div class="feld">
+          <label for="datum">Datum</label>
+          <input id="datum" type="date">
+        </div>
+        <button id="vorher" class="sekundaer" title="Vorheriger Werktag">&larr;</button>
+        <button id="heute" class="sekundaer">Heute</button>
+        <button id="nachher" class="sekundaer" title="Nächster Werktag">&rarr;</button>
+        <button id="aktualisieren" class="sekundaer">Aktualisieren</button>
+        <a id="export" class="knopf sekundaer" href="#">CSV-Export</a>
+        <button id="drucken" class="sekundaer">Drucken</button>
+      </div>
+
+      <section class="karte">
+        <h2 id="titel">Bestellungen</h2>
+        <div id="summen" class="summen"></div>
+      </section>
+
+      <section class="karte">
+        <h2>Bestellungen nach Mitarbeitenden</h2>
+        <div class="tabelle-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Abteilung</th>
+                <th>Gericht</th>
+                <th>Anzahl</th>
+                <th>Bemerkung</th>
+                <th class="nicht-drucken">Ausgegeben</th>
+                <th class="nicht-drucken"></th>
+              </tr>
+            </thead>
+            <tbody id="tabelle"></tbody>
+          </table>
+        </div>
+        <p id="leer" class="gedaempft versteckt">Für diesen Tag liegen keine Bestellungen vor.</p>
+        <p class="gedaempft nicht-drucken">Wird automatisch jede Minute aktualisiert.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="/gastro.js"></script>
+</body>
+</html>

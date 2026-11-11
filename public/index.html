@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mittagessen bestellen</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="kopf">
+    <div class="inhalt">
+      <h1>Mittagessen bestellen</h1>
+      <a href="/gastro">Gastronomie-Ansicht</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="karte">
+      <h2>Neue Bestellung</h2>
+      <form id="bestellformular" novalidate>
+        <div class="zeile">
+          <div class="feld">
+            <label for="name">Name, Vorname *</label>
+            <input id="name" name="name" autocomplete="name" maxlength="80" required>
+          </div>
+          <div class="feld">
+            <label for="abteilung">Abteilung</label>
+            <input id="abteilung" name="abteilung" maxlength="80">
+          </div>
+        </div>
+
+        <div class="zeile">
+          <div class="feld">
+            <label for="datum">Datum *</label>
+            <input id="datum" name="datum" type="date" required>
+          </div>
+          <div class="feld">
+            <label for="anzahl">Anzahl</label>
+            <input id="anzahl" name="anzahl" type="number" min="1" max="10" value="1">
+          </div>
+        </div>
+
+        <p id="datumHinweis" class="meldung hinweis versteckt"></p>
+
+        <div class="feld">
+          <label>Auswahl *</label>
+          <div id="gerichte" class="gerichte" role="radiogroup" aria-label="Gericht"></div>
+          <p class="gedaempft">Pinsa gibt es jeweils nur am Freitag.</p>
+        </div>
+
+        <div class="feld">
+          <label for="bemerkung">Bemerkung (z.&nbsp;B. Allergien, vegetarisch)</label>
+          <textarea id="bemerkung" name="bemerkung" rows="2" maxlength="200"></textarea>
+        </div>
+
+        <button type="submit" id="absenden">Bestellen</button>
+        <p id="formMeldung" class="meldung versteckt" role="status"></p>
+      </form>
+    </section>
+
+    <section class="karte">
+      <h2>Meine Bestellungen</h2>
+      <p class="gedaempft">Bestellungen, die auf diesem Gerät aufgegeben wurden. Stornieren ist bis zum Bestellschluss möglich.</p>
+      <ul id="meineListe" class="liste"></ul>
+      <p id="keineBestellungen" class="gedaempft versteckt">Keine offenen Bestellungen.</p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
